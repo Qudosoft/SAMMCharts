@@ -10,7 +10,7 @@ SAMMCharts requires jQuery 1.9.x or newer to work. Simply add the following to y
 <script src="samm-charts.js" type="text/javascript"></script>
 ```
 
-SammCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](./examples/roadmap.html) for an example setup.
+SammCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for an example setup.
 
 # Getting Started
 
@@ -47,7 +47,7 @@ To render the chart simply call `render()`.
 ```javascript
 scorecard.render();
 ```
-See [Scorecard as standalone Javascript](examples/scorecardStandalone.html) for a working example.
+See [Scorecard as standalone Javascript](https://qudosoft-labs.github.io/SAMMCharts/examples/scorecardStandalone.html) for a working example.
 
 ### Configuration
 The scorecard constructor expects a configuration object as its parameter with the following properties, optional properties are marked with `(Optional)`.
@@ -89,7 +89,7 @@ var roadmap = new SAMMCharts.Roadmap({
 });
 roadmap.render();
 ```
-See [Roadmap with RequireJS](examples/roadmap.html) for a working example.
+See [Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for a working example.
 
 ### Configuration
 The Roadmap constructor expects a configuration object as its parameter with the following properties, optional properties are marked with `(Optional)`.

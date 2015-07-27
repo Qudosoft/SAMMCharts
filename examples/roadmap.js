@@ -5,7 +5,8 @@ requirejs.config({
 	},
 	paths: {
 		jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min',
-		bootstrap: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min'
+		bootstrap: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min',
+		'samm-charts': 'https://raw.githubusercontent.com/qudosoft-labs/SAMMCharts/master/samm-charts.min'
 	}
 });
 
