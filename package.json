@@ -1,8 +1,8 @@
 {
   "name": "(sammcharts)",
   "version": "1.0.0",
-  "description": "Library to generate Security Acceptance Maturity Model (SAMM) 1.0 charts like road-maps, scorecards etc. to be displayed in the browser.",
-  "homepage": "https://github.com/qudosoft-labs/sammcharts",
+  "description": "SAMMCharts is a Javascript visualization library for the Software Assurance Maturity Model (SAMM) version 1.0.",
+  "homepage": "https://github.com/qudosoft-labs/SAMMCharts",
   "main": "karma.conf.js",
   "directories": {
     "example": "examples",
@@ -33,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/qudosoft-labs/sammcharts.git"
+    "url": "https://github.com/qudosoft-labs/SAMMCharts.git"
   },
   "bugs": {
-    "url": "https://github.com/qudosoft-labs/sammcharts/issues"
+    "url": "https://github.com/qudosoft-labs/SAMMCharts/issues"
   },
   "keywords": [
     "SAMM", "security", "chart", "roadmap", "template"
   ],
-  "author": "Alexander v. Buchholtz, Qudosoft GmbH & Co. KG",
+  "author": "Alexander v. Buchholtz, Qudosoft GmbH & Co. KG, <info@qudosoft.de>",
   "license": "Apache-2.0"
 }
