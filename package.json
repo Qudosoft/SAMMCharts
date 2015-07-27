@@ -1,0 +1,46 @@
+{
+  "name": "(sammcharts)",
+  "version": "1.0.0",
+  "description": "Library to generate Security Acceptance Maturity Model (SAMM) 1.0 charts like road-maps, scorecards etc. to be displayed in the browser.",
+  "homepage": "https://github.com/qudosoft-labs/sammcharts",
+  "main": "karma.conf.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bdd-using": "^0.1.0",
+    "karma": "^0.13.3",
+    "jasmine-core": "^2.3.4",
+    "karma-bdd-using": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-ie-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-jasmine-html-reporter": "^0.1.8",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-requirejs": "^0.2.2",
+    "requirejs": "^2.1.19",
+    "node-gyp": "^2.0.2",
+    "imagediff": "^1.0.8",
+    "fs": "^0.0.2",
+    "uglify-js": "^2.4.24"
+  },
+  "scripts": {
+    "test": "karma start --no-auto-watch --browsers Firefox --single-run",
+    "build": "copy src\\js\\samm-charts.js samm-charts.js && uglifyjs samm-charts.js --comments --compress --mangle --output samm-charts.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qudosoft-labs/sammcharts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qudosoft-labs/sammcharts/issues"
+  },
+  "keywords": [
+    "SAMM", "security", "chart", "roadmap", "template"
+  ],
+  "author": "Alexander v. Buchholtz, Qudosoft GmbH & Co. KG",
+  "license": "Apache-2.0"
+}
