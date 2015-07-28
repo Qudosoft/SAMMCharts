@@ -228,7 +228,7 @@ Thanks to the contributors of SAMM and its materials which are licensed under th
 This library was developed by Alexander v. Buchholtz at [Qudosoft](http://www.qudosoft.de)
 
 # License
-Copyright 2015 Qudosoft GmbH &amp; Co. KGed
+Copyright 2015 Qudosoft GmbH &amp; Co. KG
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
