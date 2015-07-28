@@ -213,6 +213,7 @@ colors = {
 * `render()` - renders the roadmap.
 * `renderPhaseSummaries()` - renders the phase summaries for all phases. To get an overview which activities an organization has to achieve during a phase for each phase the changed maturity levels and their activities are displayed. The levels are also linked to the online OpenSAMM documentation at OWASP.
 * `renderPhaseSummary(phase, element)` - appends the summary of the given phase to the given jQuery element selector.
+
 # Browser compatibility
 SAMMCharts is tested with Firefox (39+), Chrome(44+) and Internet Explorer 11 on Windows/Linux but should work on older browser versions that support the Canvas HTML element, too.
 
@@ -224,7 +225,7 @@ To start the tests simply run the command `npm test` which will start the Karma 
 Thanks to the contributors of SAMM and its materials which are licensed under the Creative Commons Attribution-Share Alike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/).
 
 # Authors
-This library was developed by Alexander v. Buchholtz at [Qudosoft GmbH &amp; Co. KG](http://www.qudosoft.de)
+This library was developed by Alexander v. Buchholtz at [Qudosoft](http://www.qudosoft.de)
 
 # License
 Copyright 2015 Qudosoft GmbH &amp; Co. KG
