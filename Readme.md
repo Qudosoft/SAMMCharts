@@ -210,7 +210,7 @@ colors = {
 ```
 
 #### currentPhase
-**(Optional)** - An object for displaying the current phases levels as an overlay to the roadmap. The `phase` number and the `levels` are expected as properties.
+**(Optional)** - An object for displaying the current phases levels as an overlay to the road map. The `phase` number and the `levels` are expected as properties. See [Roadmap with Current Phase Overlay](http://qudosoft-labs.github.io/SAMMCharts/examples/roadmapWithCurrentPhase.html) for an example.
 
 * `phase` - the number of the current phase. Must be an Integer greater `0` and lesser `phaseCount`
 * `levels` - An object containing a property for each practice. See `roadmap` for expected practice values. Each practice contains the value of the current level which is an Integer between `1` and `3`.
