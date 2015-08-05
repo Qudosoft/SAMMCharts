@@ -208,6 +208,33 @@ colors = {
     header: "red"
 };
 ```
+
+#### currentPhase
+**(Optional)** - An object for displaying the current phases levels as an overlay to the roadmap. The `phase` number and the `levels` are expected as properties.
+
+* `phase` - the number of the current phase. Must be an Integer greater `0` and lesser `phaseCount`
+* `levels` - An object containing a property for each practice. See `roadmap` for expected practice values. Each practice contains the value of the current level which is an Integer between `1` and `3`.
+
+```javascript
+currentPhase: {
+    phase: 2,
+    levels: {
+        SM: 1,
+        PC: 1,
+        EG: 2,
+        TA: 1,
+        SR: 1,
+        SA: 0,
+        DR: 0,
+        CR: 1,
+        ST: 2,
+        VM: 1,
+        EH: 0,
+        OE: 1
+    }
+}
+```
+
 ### Methods
 
 * `render()` - renders the roadmap.

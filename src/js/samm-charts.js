@@ -276,6 +276,14 @@
 			this.alpha = (typeof args.alpha === 'undefined') ? 0.7 : args.alpha;
 			this.displayEfforts = (typeof args.displayEfforts === 'undefined') ? true : args.displayEfforts;
 
+			args.currentPhase = args.currentPhase || {};
+			this.currentPhase = args.currentPhase.phase;
+			this.currentLevels = args.currentPhase.levels || {};
+			if(typeof this.currentPhase != "undefined") {
+				_validateCurrentPhase();
+				_validateCurrentLevels();
+			}
+
 			this.practiceWidth = 129;
 			this.practicePadding = 10;
 			this.phaseWidth = 30;
@@ -328,7 +336,7 @@
 
 		var _validateRoadmap = function () {
 			if (!(self.roadmap instanceof Object)) {
-				throw new Error("Roadmap is not an object: {0}".format(self.scores));
+				throw new Error("Roadmap is not an object: {0}".format(self.roadmap));
 			}
 			model.categories.forEach(function(category,i){
 				category.practices.forEach(function(practice,j){
@@ -354,8 +362,31 @@
 					});
 				});
 			});
-
 		};
+
+		var _validateCurrentPhase = function () {
+			if(self.currentPhase < 1 || self.currentPhase > self.phaseCount) {
+				throw new Error("Current phase must be between 1 and {1}: Found: {0}".format(self.currentPhase, self.phaseCount));
+			}
+		};
+
+		var _validateCurrentLevels = function () {
+			if (!(self.currentLevels instanceof Object)) {
+				throw new Error("current levels is not an object: {0}".format(self.currentLevels));
+			}
+			model.categories.forEach(function(category,i) {
+				category.practices.forEach(function (practice, j) {
+					var level = self.currentLevels[practice.practice];
+					if (typeof level === 'undefined') {
+						throw new Error("Missing level entry for practice '{0}' ({1}). Levels are: {2}".format(practice.practice, practice.name, JSON.stringify(self.currentLevels)));
+					}
+					if(Number(level) !== level || level % 1 !== 0 || level < 0 || level > 3){
+						throw new Error("Level value of phase {1} for practice '{2}' must be an Integer between 1 and 3. Found: {0}".format(JSON.stringify(level), k+1, practice.practice));
+					}
+				});
+			});
+		};
+
 
 		this.render = function() {
 
@@ -363,6 +394,7 @@
 
 			if (this.canvas[0].getContext) {
 				this.ctx = this.canvas[0].getContext('2d');
+				this.ctx.translate(0.5, 0.5);
 			}
 			else {
 				throw new Error("Error setting up 2D context for canvas: " + this.canvas);
@@ -371,6 +403,7 @@
 			_renderPhaseHeaders();
 			_renderPhaseBars();
 			_renderPracticeRoadmaps();
+			if (self.currentPhase) _renderCurrentPhaseLine();
 			if (self.displayEfforts) _renderPhaseEfforts();
 
 		};
@@ -491,7 +524,7 @@
 			//console.log(baseX + "/" + baseY)
 
 			ctx.beginPath();
-			ctx.moveTo(baseX - 5, baseY +3);
+			ctx.moveTo(baseX - 5, baseY + 3);
 			ctx.lineTo(baseX + 5, baseY + 3);
 			ctx.lineTo(baseX + 5, baseY + 5);
 			ctx.lineTo(baseX + 8, baseY + 5);
@@ -518,6 +551,21 @@
 			ctx.fill();
 		};
 
+		var _renderCurrentPhaseLine = function () {
+			var ctx = self.ctx;
+			if (!ctx.setLineDash) {
+				ctx.setLineDash = function () {}
+			}
+			ctx.beginPath();
+			ctx.setLineDash([5,5]);
+			var x = self.practiceLabelWidth + self.rulerLeftWidth + self.currentPhase * 2 * self.phaseWidth - self.phaseWidth;
+			ctx.moveTo(x, 0);
+			ctx.lineTo(x, self.phasesHeaderTotalHeight + self.activitiesHeight);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.setLineDash([]);
+		};
+
 		var _renderPracticeRoadmaps = function(){
 			var ctx = self.ctx;
 
@@ -533,9 +581,38 @@
 					ctx.fillText(practice.name, self.practiceWidth, self.phasesHeaderTotalHeight + i * 4 *3 * self.levelHeight + (j+1) * 4 * self.levelHeight - 2 * self.levelHeight);
 					_renderRuler(self.phasesHeaderTotalHeight + (i * 3 + j ) * 4 * self.levelHeight);
 
-					_renderRoadmap(self.roadmap[practice.practice], category.color_dark, self.phasesHeaderTotalHeight + (i * 3 + j ) * 4 * self.levelHeight + 3 * self.levelHeight );
+					var renderPracticeProgress = typeof self.currentPhase !== 'undefined';
+					var roadmapColor = renderPracticeProgress ? category.color : category.color_dark;
+
+					_renderRoadmap(self.roadmap[practice.practice], roadmapColor, self.phasesHeaderTotalHeight + (i * 3 + j ) * 4 * self.levelHeight + 3 * self.levelHeight );
+
+					if(renderPracticeProgress) {
+						var scoresByPhases = _getScoresByPhases(self.currentLevels[practice.practice], self.currentPhase, self.roadmap[practice.practice]);
+						_renderRoadmap(scoresByPhases, category.color_dark, self.phasesHeaderTotalHeight + (i * 3 + j ) * 4 * self.levelHeight + 3 * self.levelHeight );
+					}
 				});
 			});
+		};
+
+		var _getScoresByPhases = function (currentScore, currentPhase, roadmap) {
+			var scores = [];
+			roadmap.forEach(function(level, i){
+				if(currentPhase > i + 1) {
+					if (currentScore > level) {
+						scores.push(level);
+					}
+					else {
+						scores.push(currentScore);
+					}
+				}
+				else if (currentPhase == i + 1) {
+					scores.push(currentScore);
+				}
+				else {
+					scores.push(0);
+				}
+			});
+			return scores;
 		};
 
 		var _renderRoadmap = function(roadmap, color, offsetY) {
@@ -543,6 +620,7 @@
 			var baseX = self.practiceLabelWidth + self.rulerLeftWidth;
 			var baseY = offsetY;
 			var previousX = baseX;
+			var previousY = baseY;
 			var ctx = self.ctx;
 
 
@@ -554,15 +632,26 @@
 					// do nothing
 				}
 				else if (level == 0) {
-					baseX += 2 * self.phaseWidth;
-					previousX = baseX;
-					ctx.moveTo(baseX, baseY);
+					if(previousX > baseX) {
+						ctx.lineTo(previousX - self.phaseWidth, previousY);
+						ctx.lineTo(previousX - self.phaseWidth, baseY);
+						previousX += 2 * self.phaseWidth;
+						ctx.lineTo(previousX, baseY);
+						previousY = baseY;
+					}
+					else {
+						baseX += 2 * self.phaseWidth;
+						previousX = baseX;
+						previousY = baseY;
+						ctx.moveTo(previousX, previousY);
+					}
 				}
 				else {
 					previousX += self.phaseWidth;
-					ctx.lineTo(previousX, baseY - level * self.levelHeight);
+					previousY =  baseY - level * self.levelHeight;
+					ctx.lineTo(previousX, previousY);
 					previousX += self.phaseWidth;
-					ctx.lineTo(previousX, baseY - level * self.levelHeight);
+					ctx.lineTo(previousX, previousY);
 				}
 			});
 			ctx.lineTo(previousX, baseY);
@@ -574,9 +663,9 @@
 
 		var _renderRuler = function(offsetY){
 			//console.log(offsetY);
-			offsetY = offsetY + 0.5;
+			offsetY = offsetY;
 			var ctx = self.ctx;
-			var baseX = self.practiceLabelWidth + 0.5;
+			var baseX = self.practiceLabelWidth;
 			ctx.beginPath();
 			ctx.lineWidth = 1;
 			ctx.strokeStyle = self.colors.ruler;
