@@ -10,7 +10,7 @@ SAMMCharts requires jQuery 1.9.x or newer to work. Simply add the following to y
 <script src="samm-charts.js" type="text/javascript"></script>
 ```
 
-SammCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for an example setup.
+SAMMCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for an example setup.
 
 # Getting Started
 
