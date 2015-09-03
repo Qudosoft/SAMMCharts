@@ -9,9 +9,9 @@ define(['jquery', 'samm-charts', 'imagediff', 'imagediff-matchers'], function ($
 			SR: [1],
 			SA: [0],
 			DR: [0],
-			CR: [1],
+			IR: [1],
 			ST: [1],
-			VM: [1],
+			IM: [1],
 			EH: [3],
 			OE: [2]
 		};
@@ -168,9 +168,9 @@ define(['jquery', 'samm-charts', 'imagediff', 'imagediff-matchers'], function ($
 							SR: [1,1,2,3,3,3],
 							SA: [0,0,1,1,1,1],
 							DR: [0,0,1,2,2,2],
-							CR: [1,2,2,2,2,2],
+							IR: [1,2,2,2,2,2],
 							ST: [1,1,2,2,2,2],
-							VM: [1,1,2,3,3,3],
+							IM: [1,1,2,3,3,3],
 							EH: [0,0,1,2,2,2],
 							OE: [0,1,2,3,3,3]
 						},

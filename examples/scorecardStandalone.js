@@ -5,7 +5,7 @@ $(document).ready(function() {
 			governance: [0.5, 0, 2],
 			construction: [0, 0.5, 0],
 			verification: [0.5, 1.5, 0],
-			deployment: [0, 0.5, 3]
+			operations: [0, 0.5, 3]
 		}
 	});
 	scorecard.render();

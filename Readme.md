@@ -38,7 +38,7 @@ var scorecard = new SAMMCharts.Scorecard({
         governance: [0.5, 0, 2],
         construction: [0, 0.5, 0],
         verification: [0.5, 1.5, 0],
-        deployment: [0, 0.5, 3]
+        operations: [0, 0.5, 3]
     }
 });
 ```
@@ -59,7 +59,7 @@ The scores object which has a property for each business function (case-sensitiv
 * `governance`
 * `construction`
 * `verification`
-* `deployment`
+* `operations`
 
 ### Methods
 * `render()` - renders the scorecard to the DOM.
@@ -80,9 +80,9 @@ var roadmap = new SAMMCharts.Roadmap({
         SR: [1,1,2,3],
         SA: [0,0,1,1],
         DR: [0,0,1,2],
-        CR: [1,2,2,2],
+        IR: [1,2,2,2],
         ST: [1,1,2,2],
-        VM: [1,1,2,3],
+        IM: [1,1,2,3],
         EH: [0,0,1,2],
         OE: [0,1,2,3]
     }
@@ -111,9 +111,9 @@ Property names for the practices are:
 * `SR` - Security Requirements
 * `SA` - Secure Architecture
 * `DR` - Design Review
-* `CR` - Code Review
+* `IR` - Implementation Review
 * `ST` - Security Testing
-* `VM` - Vulnerability Management
+* `IM` - Issue Management
 * `EH` - Environment Hardening
 * `OE` - Operational Enablement
 
@@ -126,9 +126,9 @@ roadmap: {
     SR: [1,1,2,3,3,3],
     SA: [0,0,1,1,1,1],
     DR: [0,0,1,2,2,2],
-    CR: [1,2,2,2,2,2],
+    IR: [1,2,2,2,2,2],
     ST: [1,1,2,2,2,2],
-    VM: [1,1,2,3,3,3],
+    IM: [1,1,2,3,3,3],
     EH: [0,0,1,2,2,2],
     OE: [0,1,2,3,3,3]
 }
@@ -226,9 +226,9 @@ currentPhase: {
         SR: 1,
         SA: 0,
         DR: 0,
-        CR: 1,
+        IR: 1,
         ST: 2,
-        VM: 1,
+        IM: 1,
         EH: 0,
         OE: 1
     }

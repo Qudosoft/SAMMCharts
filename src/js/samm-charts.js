@@ -97,7 +97,7 @@
 						["A. Develop data-flow diagrams for sensitive resources", "B. Establish release gates for design review"]
 					]
 				},
-				{practice: "CR", name: "Code Review", img: "CR.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Code_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Code_Review",
+				{practice: "IR", name: "Implementation Review", img: "IR.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Implementation_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Implementation_Review",
 					activities: [
 						["A. Create review checklists from known security requirements", "B. Perform point-review of high-risk code"],
 						["A. Utilize automated code analysis tools", "B. Integrate code analysis into development process"],
@@ -112,22 +112,22 @@
 					]
 				}
 			] },
-			{category: "D", name: "Deployment", img: "D.png", href: "https://www.owasp.org/index.php/SAMM_-_Deployment", color: "indianred", color_dark: "#6C0F14", practices: [
-				{practice: "VM", name: "Vulnerability Management", img: "VM.png", href: "https://www.owasp.org/index.php/SAMM_-_Deployment#Vulnerability_Management", baseHref: "https://www.owasp.org/index.php/SAMM_-_Vulnerability_Management",
+			{category: "O", name: "Operations", img: "O.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations", color: "indianred", color_dark: "#6C0F14", practices: [
+				{practice: "IM", name: "Issue Management", img: "IM.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Issue_Management", baseHref: "https://www.owasp.org/index.php/SAMM_-_Issue_Management",
 					activities: [
 						["A. Identify point of contact for security issues", "B. Create informal security response team(s)"],
 						["A. Establish consistent incident response process", "B. Adopt a security issue disclosure process"],
 						["A. Conduct root cause analysis for incidents", "B. Collect per-incident metrics"]
 					]
 				},
-				{practice: "EH", name: "Environment Hardening", img: "EH.png", href: "https://www.owasp.org/index.php/SAMM_-_Deployment#Environment_Hardening", baseHref: "https://www.owasp.org/index.php/SAMM_-_Environment_Hardening",
+				{practice: "EH", name: "Environment Hardening", img: "EH.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Environment_Hardening", baseHref: "https://www.owasp.org/index.php/SAMM_-_Environment_Hardening",
 					activities: [
 						["A. Maintain operational environment specification", "B. Identify and install critical security upgrades and patches"],
 						["A. Establish routine patch management process", "B. Monitor baseline environment configuration status"],
 						["A. Identify and deploy relevant operations protection tools", "B. Expand audit program for environment configuration"]
 					]
 				},
-				{practice: "OE", name: "Operational Enablement", img: "OE.png", href: "https://www.owasp.org/index.php/SAMM_-_Deployment#Operational_Enablement", baseHref: "https://www.owasp.org/index.php/SAMM_-_Operational_Enablement",
+				{practice: "OE", name: "Operational Enablement", img: "OE.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Operational_Enablement", baseHref: "https://www.owasp.org/index.php/SAMM_-_Operational_Enablement",
 					activities: [
 						["A. Capture critical security information for deployment", "B. Document procedures for typical application alerts"],
 						["A. Create per-release change management procedures", "B. Maintain formal operational security guides"],
@@ -227,7 +227,7 @@
 				throw new Error("scores is not an object: {0}".format(scores));
 			}
 
-			var expectedProperties = ['governance', 'construction', 'verification', 'deployment'];
+			var expectedProperties = ['governance', 'construction', 'verification', 'operations'];
 
 			expectedProperties.forEach(function (v, i) {
 				var score = scores[v];
