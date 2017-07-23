@@ -5,12 +5,12 @@ SAMMCharts is a Javascript visualization library for the [Software Assurance Mat
 # Dependencies
 SAMMCharts requires jQuery 1.9.x or newer to work. Simply add the following to your website to get started with SAMMCharts.
 
-```javascript
+```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-<script src="samm-charts.js" type="text/javascript"></script>
+<script src="samm-charts.min.js" type="text/javascript"></script>
 ```
 
-SammCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for an example setup.
+SammCharts is developed as an AMD module so you can easily integrate with RequireJS. See [SAMM Roadmap with RequireJS](https://qudosoft.github.io/SAMMCharts/examples/roadmap.html) for an example setup.
 
 # Getting Started
 
@@ -47,7 +47,7 @@ To render the chart simply call `render()`.
 ```javascript
 scorecard.render();
 ```
-See [Scorecard as standalone Javascript](https://qudosoft-labs.github.io/SAMMCharts/examples/scorecardStandalone.html) for a working example.
+See [Scorecard as standalone Javascript](https://qudosoft.github.io/SAMMCharts/examples/scorecardStandalone.html) for a working example.
 
 ### Configuration
 The scorecard constructor expects a configuration object as its parameter with the following properties, optional properties are marked with `(Optional)`.
@@ -73,7 +73,7 @@ var roadmap = new SAMMCharts.Roadmap({
     element: '#roadmap',
     phaseCount: 4,
     roadmap: {
-        SM: [1,2,2,3,],
+        SM: [1,2,2,3],
         PC: [0,1,1,2],
         EG: [1,2,2,2],
         TA: [0,1,1,2],
@@ -89,7 +89,7 @@ var roadmap = new SAMMCharts.Roadmap({
 });
 roadmap.render();
 ```
-See [Roadmap with RequireJS](https://qudosoft-labs.github.io/SAMMCharts/examples/roadmap.html) for a working example.
+See [Roadmap with RequireJS](https://qudosoft.github.io/SAMMCharts/examples/roadmap.html) for a working example.
 
 ### Configuration
 The Roadmap constructor expects a configuration object as its parameter with the following properties, optional properties are marked with `(Optional)`.
@@ -118,20 +118,22 @@ Property names for the practices are:
 * `OE` - Operational Enablement
 
 ```javascript
-roadmap: {
-    SM: [1,2,2,3,3,3],
-    PC: [0,1,1,2,2,2],
-    EG: [1,2,2,2,2,2],
-    TA: [0,1,1,2,2,2],
-    SR: [1,1,2,3,3,3],
-    SA: [0,0,1,1,1,1],
-    DR: [0,0,1,2,2,2],
-    CR: [1,2,2,2,2,2],
-    ST: [1,1,2,2,2,2],
-    VM: [1,1,2,3,3,3],
-    EH: [0,0,1,2,2,2],
-    OE: [0,1,2,3,3,3]
-}
+var roadmap = new SAMMCharts.Roadmap({
+    roadmap: {
+        SM: [1,2,2,3,3,3],
+        PC: [0,1,1,2,2,2],
+        EG: [1,2,2,2,2,2],
+        TA: [0,1,1,2,2,2],
+        SR: [1,1,2,3,3,3],
+        SA: [0,0,1,1,1,1],
+        DR: [0,0,1,2,2,2],
+        CR: [1,2,2,2,2,2],
+        ST: [1,1,2,2,2,2],
+        VM: [1,1,2,3,3,3],
+        EH: [0,0,1,2,2,2],
+        OE: [0,1,2,3,3,3]
+    }
+});
 ```
 
 #### displayEfforts
@@ -140,11 +142,10 @@ roadmap: {
 #### phasesSummaryElement
 **(Optional)** - A jQuery element selector which specifies where to append a detailed report to for all phases listing all activities to be achieved in the phase. To render the summary, you have to call `renderPhaseSummaries()` explicitly.
 ```javascript
- var roadmap = new SAMMCharts.Roadmap({
-    ...
+var roadmap = new SAMMCharts.Roadmap({
     phasesSummaryElement: "#summary"
- });
- roadmap.renderPhaseSummaries();
+});
+roadmap.renderPhaseSummaries();
 ```
 To individually render the summary for a specific phase, see the `renderPhaseSummary(phase, element)` method below.
 
@@ -160,37 +161,41 @@ To individually render the summary for a specific phase, see the `renderPhaseSum
 
 You can override the default settings by only setting the values that you want to change, e.g. to only change the font family, simply add:
 ```javascript
-fonts: {
-    phases: {
-        font: "Helvetica"
-    },
-    practices: {
-        font: "Helvetica"
-    },
-    efforts: {
-        font: "Helvetica"
+var roadmap = new SAMMCharts.Roadmap({
+    fonts: {
+        phases: {
+            font: "Helvetica"
+        },
+        practices: {
+            font: "Helvetica"
+        },
+        efforts: {
+            font: "Helvetica"
+        }
     }
-}
+});
 ```
 The default values are:
 ```javascript
-fonts: {
-    phases: {
-        size: "10",
-        font: "Arial",
-        style: "italic"
-    },
-    practices: {
-        size: "10",
-        font: "Arial",
-        style: "bold"
-    },
-    efforts: {
-        size: "11",
-        font: "Arial",
-        style: "bold"
+var roadmap = new SAMMCharts.Roadmap({
+    fonts: {
+        phases: {
+            size: "10",
+            font: "Arial",
+            style: "italic"
+        },
+        practices: {
+            size: "10",
+            font: "Arial",
+            style: "bold"
+        },
+        efforts: {
+            size: "11",
+            font: "Arial",
+            style: "bold"
+        }
     }
-}
+});
 ```
 #### colors
 **(Optional)** - An object for setting colors of rulers and background bars. The following colors can be set:
@@ -216,23 +221,25 @@ colors = {
 * `levels` - An object containing a property for each practice. See `roadmap` for expected practice values. Each practice contains the value of the current level which is an Integer between `1` and `3`.
 
 ```javascript
-currentPhase: {
-    phase: 2,
-    levels: {
-        SM: 1,
-        PC: 1,
-        EG: 2,
-        TA: 1,
-        SR: 1,
-        SA: 0,
-        DR: 0,
-        CR: 1,
-        ST: 2,
-        VM: 1,
-        EH: 0,
-        OE: 1
+var roadmap = new SAMMCharts.Roadmap({
+    currentPhase: {
+        phase: 2,
+        levels: {
+            SM: 1,
+            PC: 1,
+            EG: 2,
+            TA: 1,
+            SR: 1,
+            SA: 0,
+            DR: 0,
+            CR: 1,
+            ST: 2,
+            VM: 1,
+            EH: 0,
+            OE: 1
+        }
     }
-}
+});
 ```
 
 ### Methods
@@ -252,16 +259,16 @@ To start the tests simply run the command `npm test` which will start the Karma 
 Thanks to the contributors of SAMM and its materials which are licensed under the Creative Commons Attribution-Share Alike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/).
 
 # Authors
-This library was developed by Alexander v. Buchholtz at [Qudosoft](http://www.qudosoft.de)
+This library was developed by [Alexander v. Buchholtz](https://github.com/albuch) at [Qudosoft](http://www.qudosoft.de)
 
 # License
-Copyright 2015 Qudosoft GmbH &amp; Co. KG
+Copyright 2015-2017 Qudosoft GmbH &amp; Co. KG
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
