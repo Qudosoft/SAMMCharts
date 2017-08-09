@@ -137,7 +137,7 @@
 			] }
 		]
 	};
-	var baseImgURL = "http://www.opensamm.org/badges/small/";
+	var baseImgURL = "https://qudosoft.github.io/SAMMCharts/v1.1/badges/small/";
 	var imgSuffix = "";
 
 	var SAMMCharts = {
