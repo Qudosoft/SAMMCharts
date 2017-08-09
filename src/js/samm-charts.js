@@ -1,7 +1,7 @@
 
 /**
  @license
- Copyright 2015 Qudosoft GmbH & Co. KG
+ Copyright 2015-2017 Qudosoft GmbH & Co. KG
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@
 		String.prototype.format = function() {
 			var args = arguments;
 			return this.replace(/{(\d+)}/g, function(match, number) {
-				return typeof args[number] != 'undefined'
+				return typeof args[number] !== 'undefined'
 					? args[number]
 					: match
 					;
@@ -237,15 +237,15 @@
 				if(!Array.isArray(score)){
 					throw new Error("'{0}' scores is not an array: {1}".format(v, JSON.stringify(score)));
 				}
-				if (score.length != 3) {
+				if (score.length !== 3) {
 					throw new Error("'{0}' scores must have exactly 3 entries. Actual count: {1}".format(v, score.length));
 				}
 
 				score.forEach(function (practiceScore, j) {
-					if (typeof practiceScore != 'number' || practiceScore < 0 || practiceScore > 3) {
+					if (typeof practiceScore !== 'number' || practiceScore < 0 || practiceScore > 3) {
 						throw new Error("{0} scores contains invalid score value(s). Allowed values are numbers between 0 and 3. Actual values: {1}".format(v, JSON.stringify(score)));
 					}
-					if(practiceScore % 0.5 != 0) {
+					if(practiceScore % 0.5 !== 0) {
 						throw new Error("{0} scores contains invalid score value(s). Allowed values are integers or .5 doubles. Actual values: {1}".format(v, JSON.stringify(score)));
 					}
 				});
@@ -279,7 +279,7 @@
 			args.currentPhase = args.currentPhase || {};
 			this.currentPhase = args.currentPhase.phase;
 			this.currentLevels = args.currentPhase.levels || {};
-			if(typeof this.currentPhase != "undefined") {
+			if(typeof this.currentPhase !== "undefined") {
 				_validateCurrentPhase();
 				_validateCurrentLevels();
 			}
@@ -331,7 +331,7 @@
 		};
 
 		var _validatePhaseCount = function () {
-			if (self.phaseCount < 1 || self.phaseCount % 1 != 0) throw new Error ("Phase count has to be an Integer greater 0");
+			if (self.phaseCount < 1 || self.phaseCount % 1 !== 0) throw new Error ("Phase count has to be an Integer greater 0");
 		};
 
 		var _validateRoadmap = function () {
@@ -605,7 +605,7 @@
 						scores.push(currentScore);
 					}
 				}
-				else if (currentPhase == i + 1) {
+				else if (currentPhase === i + 1) {
 					scores.push(currentScore);
 				}
 				else {
@@ -631,7 +631,7 @@
 				if (i >= self.phaseCount) {
 					// do nothing
 				}
-				else if (level == 0) {
+				else if (level === 0) {
 					if(previousX > baseX) {
 						ctx.lineTo(previousX - self.phaseWidth, previousY);
 						ctx.lineTo(previousX - self.phaseWidth, baseY);
