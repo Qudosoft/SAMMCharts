@@ -45,20 +45,20 @@
 
 	var model = {
 		categories: [
-			{category: "G", name: "Governance", img: "G.png", href: "https://www.owasp.org/index.php/SAMM_-_Governance", color: "lightblue", color_dark: "#014E6C",  practices: [
-				{practice: "SM", name: "Strategy & Metrics", img: "SM.png", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Strategy_.26_Metrics" , baseHref: "https://www.owasp.org/index.php/SAMM_-_Strategy_%26_Metrics",
+			{category: "G", name: "Governance", img: "G", href: "https://www.owasp.org/index.php/SAMM_-_Governance", color: "lightblue", color_dark: "#014E6C",  practices: [
+				{practice: "SM", name: "Strategy & Metrics", img: "SM", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Strategy_.26_Metrics" , baseHref: "https://www.owasp.org/index.php/SAMM_-_Strategy_%26_Metrics",
 					activities: [
 						["A. Estimate overall business risk profile", "B. Build and maintain assurance program roadmap"],
 						["A. Classify data and applications based on business risk", "B. Establish and measure per-classification security goals"],
 						["A. Conduct periodic industry-wide cost comparisons", "B. Collect metrics for historic security spend"]]
 				},
-				{practice: "PC", name: "Policy & Compliance", img: "PC.png", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Policy_.26_Compliance", baseHref: "https://www.owasp.org/index.php/SAMM_-_Policy_%26_Compliance",
+				{practice: "PC", name: "Policy & Compliance", img: "PC", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Policy_.26_Compliance", baseHref: "https://www.owasp.org/index.php/SAMM_-_Policy_%26_Compliance",
 					activities: [
 						["A. Identify and monitor external compliance drivers", "B. Build and maintain compliance guidelines"],
 						["A. Build policies and standards for security and compliance", "B. Establish project audit practice"],
 						["A. Create compliance gates for projects", "B. Adopt solution for audit data collection"]]
 				},
-				{practice: "EG", name: "Education & Guidance", img: "EG.png", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Education_.26_Guidance", baseHref: "https://www.owasp.org/index.php/SAMM_-_Education_%26_Guidance",
+				{practice: "EG", name: "Education & Guidance", img: "EG", href: "https://www.owasp.org/index.php/SAMM_-_Governance#Education_.26_Guidance", baseHref: "https://www.owasp.org/index.php/SAMM_-_Education_%26_Guidance",
 					activities: [
 						["A. Conduct technical security awareness training", "B. Build and maintain technical guidelines"],
 						["A. Conduct role-specific application security training", "B. Utilize security coaches to enhance project teams"],
@@ -66,22 +66,22 @@
 					]
 				}
 			] },
-			{category: "C", name: "Construction", img: "C.png", href: "https://www.owasp.org/index.php/SAMM_-_Construction", color: "peru", color_dark: "#6B3416", practices: [
-				{practice: "TA", name: "Threat Assessment", img: "TA.png", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Threat_Assessment", baseHref: "https://www.owasp.org/index.php/SAMM_-_Threat_Assessment",
+			{category: "C", name: "Construction", img: "C", href: "https://www.owasp.org/index.php/SAMM_-_Construction", color: "peru", color_dark: "#6B3416", practices: [
+				{practice: "TA", name: "Threat Assessment", img: "TA", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Threat_Assessment", baseHref: "https://www.owasp.org/index.php/SAMM_-_Threat_Assessment",
 					activities: [
 						["A. Build and maintain application-specific threat models", "B. Develop attacker profile from software architecture"],
 						["A. Build and maintain abuse-case models per project", "B. Adopt a weighting system for measurement of threats"],
 						["A. Explicitly evaluate risk from third-party components", "B. Elaborate threat models with compensating controls"]
 					]
 				},
-				{practice: "SR", name: "Security Requirements", img: "SR.png", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Security_Requirements", baseHref: "https://www.owasp.org/index.php/SAMM_-_Security_Requirements",
+				{practice: "SR", name: "Security Requirements", img: "SR", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Security_Requirements", baseHref: "https://www.owasp.org/index.php/SAMM_-_Security_Requirements",
 					activities: [
 						["A. Derive security requirements from business functionality", "B. Evaluate security and compliance guidance for requirements"],
 						["A. Build an access control matrix for resources and capabilities", "B. Specify security requirements based on known risks"],
 						["A. Build security requirements into supplier agreements", "B. Expand audit program for security requirements"]
 					]
 				},
-				{practice: "SA", name: "Secure Architecture", img: "SA.png", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Security_Architecture", baseHref: "https://www.owasp.org/index.php/SAMM_-_Secure_Architecture",
+				{practice: "SA", name: "Secure Architecture", img: "SA", href: "https://www.owasp.org/index.php/SAMM_-_Construction#Security_Architecture", baseHref: "https://www.owasp.org/index.php/SAMM_-_Secure_Architecture",
 					activities: [
 						["A. Maintain list of recommended software frameworks", "B. Explicitly apply security principles to design"],
 						["A. Identify and promote security services and infrastructure", "B. Identify security design patterns from architecture"],
@@ -89,22 +89,22 @@
 					]
 				}
 			] },
-			{category: "V", name: "Verification", img: "V.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification", color: "darkseagreen", color_dark: "#116D37", practices: [
-				{practice: "DR", name: "Design Review", img: "DR.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Design_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Design_Review",
+			{category: "V", name: "Verification", img: "V", href: "https://www.owasp.org/index.php/SAMM_-_Verification", color: "darkseagreen", color_dark: "#116D37", practices: [
+				{practice: "DR", name: "Design Review", img: "DR", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Design_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Design_Review",
 					activities: [
 						["A. Identify software attack surface", "B. Analyze design against known security requirements"],
 						["A. Inspect for complete provision of security mechanisms", "B. Deploy design review service for project teams"],
 						["A. Develop data-flow diagrams for sensitive resources", "B. Establish release gates for design review"]
 					]
 				},
-				{practice: "IR", name: "Implementation Review", img: "IR.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Implementation_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Implementation_Review",
+				{practice: "IR", name: "Implementation Review", img: "IR", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Implementation_Review", baseHref: "https://www.owasp.org/index.php/SAMM_-_Implementation_Review",
 					activities: [
 						["A. Create review checklists from known security requirements", "B. Perform point-review of high-risk code"],
 						["A. Utilize automated code analysis tools", "B. Integrate code analysis into development process"],
 						["A. Customize code analysis for application-specific concerns", "B. Establish release gates for code review"]
 					]
 				},
-				{practice: "ST", name: "Security Testing", img: "ST.png", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Security_Testing", baseHref: "https://www.owasp.org/index.php/SAMM_-_Security_Testing",
+				{practice: "ST", name: "Security Testing", img: "ST", href: "https://www.owasp.org/index.php/SAMM_-_Verification#Security_Testing", baseHref: "https://www.owasp.org/index.php/SAMM_-_Security_Testing",
 					activities: [
 						["A. Derive test cases from known security requirements", "B. Conduct penetration testing on software releases"],
 						["A. Utilize automated security testing tools", "B. Integrate security testing into development process"],
@@ -112,22 +112,22 @@
 					]
 				}
 			] },
-			{category: "O", name: "Operations", img: "O.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations", color: "indianred", color_dark: "#6C0F14", practices: [
-				{practice: "IM", name: "Issue Management", img: "IM.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Issue_Management", baseHref: "https://www.owasp.org/index.php/SAMM_-_Issue_Management",
+			{category: "O", name: "Operations", img: "O", href: "https://www.owasp.org/index.php/SAMM_-_Operations", color: "indianred", color_dark: "#6C0F14", practices: [
+				{practice: "IM", name: "Issue Management", img: "IM", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Issue_Management", baseHref: "https://www.owasp.org/index.php/SAMM_-_Issue_Management",
 					activities: [
 						["A. Identify point of contact for security issues", "B. Create informal security response team(s)"],
 						["A. Establish consistent incident response process", "B. Adopt a security issue disclosure process"],
 						["A. Conduct root cause analysis for incidents", "B. Collect per-incident metrics"]
 					]
 				},
-				{practice: "EH", name: "Environment Hardening", img: "EH.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Environment_Hardening", baseHref: "https://www.owasp.org/index.php/SAMM_-_Environment_Hardening",
+				{practice: "EH", name: "Environment Hardening", img: "EH", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Environment_Hardening", baseHref: "https://www.owasp.org/index.php/SAMM_-_Environment_Hardening",
 					activities: [
 						["A. Maintain operational environment specification", "B. Identify and install critical security upgrades and patches"],
 						["A. Establish routine patch management process", "B. Monitor baseline environment configuration status"],
 						["A. Identify and deploy relevant operations protection tools", "B. Expand audit program for environment configuration"]
 					]
 				},
-				{practice: "OE", name: "Operational Enablement", img: "OE.png", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Operational_Enablement", baseHref: "https://www.owasp.org/index.php/SAMM_-_Operational_Enablement",
+				{practice: "OE", name: "Operational Enablement", img: "OE", href: "https://www.owasp.org/index.php/SAMM_-_Operations#Operational_Enablement", baseHref: "https://www.owasp.org/index.php/SAMM_-_Operational_Enablement",
 					activities: [
 						["A. Capture critical security information for deployment", "B. Document procedures for typical application alerts"],
 						["A. Create per-release change management procedures", "B. Maintain formal operational security guides"],
@@ -139,11 +139,13 @@
 	};
 	var baseImgURL = "https://qudosoft.github.io/SAMMCharts/v1.1/badges/small/";
 	var imgSuffix = "";
+	var imageTypeSuffix = ".jpg";
 
 	var SAMMCharts = {
 
 		imgURLBase: baseImgURL,
 		imgURLSuffix:  imgSuffix,
+		imgTypeSuffix: imageTypeSuffix,
 
 		namespace: function(namespace) {
 			var parts = namespace.split('.');
@@ -162,12 +164,13 @@
 			if(typeof img === 'undefined') {
 				throw new Error('Missing image parameter.');
 			}
-			return this.imgURLBase + img + this.imgURLSuffix;
+			return this.imgURLBase + img + this.imgTypeSuffix + this.imgURLSuffix;
 		},
 		
 		resetImgURL: function () {
 			this.imgURLBase = baseImgURL;
 			this.imgURLSuffix = imgSuffix;
+			this.imgTypeSuffix = imageTypeSuffix;
 		}
 	};
 
@@ -435,7 +438,7 @@
 						var previousPracticeLevel = self.roadmap[practice.practice][phaseIndex-1];
 						if (practiceLevel === previousPracticeLevel) return true;
 					}
-					var levelImageURL = SAMMCharts.getImgURL(practice.practice + practiceLevel + '.png');
+					var levelImageURL = SAMMCharts.getImgURL(practice.practice + practiceLevel);
 					var levelURL = practice.baseHref + '_-_' + practiceLevel;
 					activities = activities.concat('<div style="overflow: hidden; margin:2px;"><div style="float: left;height: 40px;"><span style="display: inline-block;height: 100%; vertical-align: middle;"></span><a href="' + levelURL + '" target="_blank" style="vertical-align: middle;"><img src="' + levelImageURL+'" alt="'+practice.name+'" width="75" style="vertical-align: middle;"/></a></div><div style="float: left; padding-left: 10px"><small>'+practice.activities[practiceLevel-1].join('<br/>')+'</small></div></div>');
 				});
