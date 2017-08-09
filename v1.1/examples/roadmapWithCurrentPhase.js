@@ -44,9 +44,9 @@ define(function (require) {
 				SR: 1,
 				SA: 0,
 				DR: 0,
-				CR: 1,
+				IR: 1,
 				ST: 2,
-				VM: 1,
+				IM: 1,
 				EH: 0,
 				OE: 1
 			}
